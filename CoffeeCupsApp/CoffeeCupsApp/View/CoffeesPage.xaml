@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CoffeeCupsApp.View.CoffeesPage"
+             Title="Coffees !">
+    <StackLayout>
+        <Button Text="Add Coffee" Command="{Binding AddCoffeeCommand}"/>
+        <ListView ItemsSource="{Binding Coffees}"
+                  IsPullToRefreshEnabled="True"
+                  IsRefreshing="{Binding IsBusy,Mode=OneWay}"
+                  RefreshCommand="{Binding LoadCoffeesCommand}">
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding DateDisplay}"
+                              Detail="{Binding TimeDisplay}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+    
+    
+    
+</ContentPage>
